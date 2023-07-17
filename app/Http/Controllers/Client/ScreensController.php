@@ -19,9 +19,10 @@ class ScreensController extends Controller
             'menu_office' => $data->offices(),
             'data'=>$data->offices(),
             'popular'      => $data->popular(),
-            'infografis'    => $data->images(1),
+            'infografis'    => $data->images(5),
             'video'         => $data->videos(),
             'files'         => $data->files(1),
+            'iklan_sidebar' => $data->images(4),
         ]);
     }
 
@@ -34,10 +35,11 @@ class ScreensController extends Controller
             'menu'      => $data->menu(),
             'menu_office' => $data->offices(),
             'popular'      => $data->popular(),
-            'infografis'    => $data->images(1),
+            'infografis'    => $data->images(5),
             'video'         => $data->videos(),
             'files'         => $data->files(1),
             'data'=>$data->service('layanan-wilayah'),
+            'iklan_sidebar' => $data->images(4),
         ]);
     }
 
@@ -51,7 +53,7 @@ class ScreensController extends Controller
             'menu'          => $data->menu(),
             'menu_office'   => $data->offices(),
             'popular'       => $data->popular(),
-            'infografis'    => $data->images(1),
+            'infografis'    => $data->images(5),
             'video'         => $data->videos(),
             'files'         => $data->files(1),
             'data'          => $data->services(),
@@ -78,8 +80,9 @@ class ScreensController extends Controller
             'menu_office' => $data->offices(),
             'popular'=>$data->popular(),
             'data'=>$data->files(1),
-            'infografis'    => $data->images(1),
+            'infografis'    => $data->images(5),
             'video'         => $data->videos('video'),
+            'iklan_sidebar' => $data->images(4),
         ]);
     }
 
@@ -92,11 +95,12 @@ class ScreensController extends Controller
             'menu'          => $data->menu(),
             'menu_office'   => $data->offices(),
             'popular'       => $data->popular(),
-            'infografis'    => $data->images(1),
+            'infografis'    => $data->images(5),
             'video'         => $data->videos('video'),
             'files'         => $data->files(1),
             'data'          => $data->postsCategory($category, $request->page),
             'title'         => $category,
+            'iklan_sidebar' => $data->images(4),
         ]);
     }
 
@@ -109,10 +113,11 @@ class ScreensController extends Controller
             'menu'          => $data->menu(),
             'menu_office'   => $data->offices(),
             'popular'      => $data->popular(),
-            'infografis'    => $data->images(1),
+            'infografis'    => $data->images(5),
             'video'         => $data->videos(),
             'files'         => $data->files(1),
             'data'          => $data->archives(),
+            'iklan_sidebar' => $data->images(4),
         ]);
     }
 
@@ -125,12 +130,13 @@ class ScreensController extends Controller
             'menu'          => $data->menu(),
             'menu_office'   => $data->offices(),
             'popular'       => $data->popular(),
-            'infografis'    => $data->images(1),
+            'infografis'    => $data->images(5),
             'video'         => $data->videos(),
             'files'         => $data->files(1),
             'data'          => $data->videos($category, $request->page),
             'title'         => Str::upper($category),
             'data_kepegawaian' => $data->files(3),
+            'iklan_sidebar' => $data->images(4),
         ]);
     }
 
@@ -143,10 +149,11 @@ class ScreensController extends Controller
             'menu'          => $data->menu(),
             'menu_office'   => $data->offices(),
             'popular'      => $data->popular(),
-            'infografis'    => $data->images(1),
+            'infografis'    => $data->images(5),
             'video'         => $data->videos(),
             'files'         => $data->files(1),
             'data'          => $data->videos('podcast', $request->page),
+            'iklan_sidebar' => $data->images(4),
         ]);
     }
 
@@ -161,6 +168,7 @@ class ScreensController extends Controller
             'title'         => Str::title($category),
             'data'          => $data->pages($category),
             'popular'      => $data->popular(),
+            'iklan_sidebar' => $data->images(4),
             'iklan_sidebar' => $data->images(4),
 
         ]);
@@ -178,6 +186,7 @@ class ScreensController extends Controller
             'video'         => $data->videos(),
             'files'         => $data->files(1),
             'data'          => $data->images(1),
+            'iklan_sidebar' => $data->images(4),
         ]);
     }
 
@@ -190,11 +199,12 @@ class ScreensController extends Controller
             'files'         => $data->files(1),
             'menu'          => $data->menu(),
             'popular'       => $data->popular(),
-            'infografis'    => $data->images(1),
+            'infografis'    => $data->images(5),
             'video'         => $data->videos(),
             'files'         => $data->files(1),
             'title'         => "Hasil Tag : #$request->q",
             'data'          => $data->tags($q, $request->page),
+            'iklan_sidebar' => $data->images(4),
         ]);
     }
 
@@ -207,10 +217,11 @@ class ScreensController extends Controller
             'menu'      => $data->menu(),
             'data'      => $data->search($request->q),
             'popular'  => $data->popular(),
-            'infografis'    => $data->images(1),
+            'infografis'    => $data->images(5),
             'video'         => $data->videos(),
             'files'         => $data->files(1),
             'title'     => "Hasil Pencarian: $request->q",
+            'iklan_sidebar' => $data->images(4),
         ]);
     }
 
@@ -223,6 +234,7 @@ class ScreensController extends Controller
             'menu_office'   => $data->offices(),
             'title'         => 'Struktur Organisasi',
             'data'          => $data->officers(),
+            'iklan_sidebar' => $data->images(4),
             'popular'       => $data->popular()
         ]);
     }
@@ -237,6 +249,7 @@ class ScreensController extends Controller
             'menu_office'   => $data->offices(),
             // 'title'         => 'Struktur Organisasi',
             'data'          => $data->photos(),
+            'iklan_sidebar' => $data->images(4),
             'popular'       => $data->popular()
         ]);
     }

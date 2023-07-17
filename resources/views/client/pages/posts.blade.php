@@ -65,14 +65,12 @@
 
                     </div>
                     <div class="col-md-12 col-lg-4">
-                        @include('client.widget.popular-sidebar', ['title' => 'POPULER', 'data' => $popular, 'limit' =>
-                        4])
-                        @include('client.widget.advertise', ['data' => $popular, 'limit' => 4])
-                        @include('client.widget.infografis', ['title' => 'INFOGRAFIS', 'data' => $popular, 'limit' =>
-                        4])
+                        @include('client.widget.popular-sidebar', ['data' => $popular, 'limit' => 6, 'title' => 'POPULAR'])
+
+                        @include('client.widget.advertise', ['data' => $iklan_sidebar, 'limit' => 4])
+                        @include('client.widget.infografis', ['title' => 'INFOGRAFIS', 'data' => $infografis, 'limit' => 4])
                         @include('client.widget.social-media', ['data' => $popular, 'limit' => 4])
-                        @include('client.widget.advertise', ['data' => $popular, 'limit' => 4])
-                    </div>
+                        @include('client.widget.advertise', ['data' => $iklan_sidebar, 'limit' => 4])
                 </div>
             </div>
         </div>

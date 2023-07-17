@@ -27,7 +27,7 @@
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
                                         <span>
-                                            Copyright © {{ now()->format('Y') }} | <a href="{{ config('app.url') }}">Baca Politik</a>
+                                            Copyright © {{ now()->format('Y') }} | <a href="{{ config('app.url') }}">{{ config('app.name') }}</a>
                                         </span>
                                     </li>
                                 </ul>

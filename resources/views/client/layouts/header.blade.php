@@ -1,39 +1,4 @@
 <header class="bg-light">
-    <!-- Navbar  Top-->
-    {{-- <div class="topbar d-none d-sm-block">
-        <div class="container ">
-            <div class="row">
-                <div class="col-sm-12 col-md-5">
-                    <div class="topbar-left">
-                        <div class="topbar-text" id="ct">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-7">
-                    <div class="list-unstyled topbar-right">
-                        <ul class="topbar-link">
-                            <li><a href="/page/kontak" title=""><b>Kontak</b></a></li>
-                            <li><a href="/page/tentang-kami" title=""><b>Tentang Kami</b></a></li>
-                        </ul>
-                        <ul class="topbar-sosmed">
-                            <li>
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <!-- End Navbar Top  -->
-    <!-- Navbar  -->
-    <!-- Navbar menu  -->
     <div class="navigation-wrap navigation-shadow bg-white">
         <nav class="navbar navbar-hover navbar-expand-lg navbar-soft">
             <div class="container">

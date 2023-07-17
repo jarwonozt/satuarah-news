@@ -41,12 +41,12 @@ class ScreenController extends Controller
                 'data'          => $row,
                 'posts'         => $data->posts($category),
                 'data_kepegawaian'  => $data->files(3),
-                'infografis'        => $data->images(1),
+                'infografis'        => $data->images(5),
                 'video'         => $data->videos(),
                 'files'         => $data->files(1),
                 'counter'       => $data->counterPost($code),
                 'popular'       => $data->popular(),
-                'iklan_sidebar' => $data->images(2),
+                'iklan_sidebar' => $data->images(4),
             ]);
         }else{
             return redirect(env('APP_URL'));
@@ -65,8 +65,9 @@ class ScreenController extends Controller
             'data_file'     => $data->dataFile($slug),
             'popular'       => $data->popular(),
             'files'         => $data->files(1),
-            'infografis'    => $data->images(1),
+            'infografis'    => $data->images(5),
             'video'         => $data->videos(),
+            'iklan_sidebar' => $data->images(4),
         ]);
     }
 
@@ -80,6 +81,8 @@ class ScreenController extends Controller
             'menu_office'   => $data->offices(),
             'data'          => $data->office($slug),
             'posts'         => $data->postOffice($slug),
+            'iklan_sidebar' => $data->images(4),
+
         ]);
     }
 
@@ -97,6 +100,7 @@ class ScreenController extends Controller
             'menu'          => $data->menu(),
             'menu_office'   => $data->offices(),
             'data'          => $data->page($slug),
+            'iklan_sidebar' => $data->images(4),
         ]);
     }
 
@@ -111,10 +115,11 @@ class ScreenController extends Controller
             'menu_office'   => $data->offices(),
             'data'          => $data->video($slug),
             'files'         => $data->files(1),
-            'infografis'    => $data->images(1),
+            'infografis'    => $data->images(5),
             'video'         => $data->videos(),
             'popular'       => $data->popular(),
             'data_kepegawaian' => $data->files(3),
+            'iklan_sidebar' => $data->images(4),
         ]);
     }
 
@@ -130,9 +135,11 @@ class ScreenController extends Controller
             'author'        => $data->author($slug),
             'data'          => $data->postAuthor($slug, $request->page),
             'files'         => $data->files(1),
-            'infografis'    => $data->images(1),
+            'infografis'    => $data->images(5),
             'video'         => $data->videos(),
-            'popular'       => $data->popular()
+            'popular'       => $data->popular(),
+            'iklan_sidebar' => $data->images(4),
+
         ]);
     }
 
@@ -149,8 +156,9 @@ class ScreenController extends Controller
             'data'          => $data->photoDetail($slug),
             // 'files'         => $data->files(1),
             'data_kepegawaian' => $data->files(3),
-            'infografis'    => $data->images(1),
+            'infografis'    => $data->images(5),
             'video'         => $data->videos(),
+            'iklan_sidebar' => $data->images(4),
             'popular'       => $data->popular()
         ]);
     }
