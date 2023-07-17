@@ -1,0 +1,115 @@
+<x-master-layout>
+    @section('title')
+        @lang('admin.page.create')
+    @endsection
+    <div class="content-wrapper">
+        <div class="container-xxl flex-grow-1 container-p-y"><h5 class="fw-bold py-3 mb-2"><span class="text-muted fw-light">Dashboard / <a href="{{ route('pages.index') }}">@lang('admin.page.title')</a> /</span> @lang('admin.page.create')</h6>
+
+            <form class="form" method="POST" enctype="multipart/form-data" action="{{ route('pages.store') }}">
+            @csrf
+            <div class="row justify-content-start">
+                <div class="col-12 col-md-8 col-xl-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label class="form-label text-primary fw-bold text-uppercase" for="basic-default">@lang('admin.form.title') </label></span>
+                                <input id="title" name="title" type="text" class="form-control" placeholder="@lang('admin.form.title') @lang('admin.page.title')" value="{{ old('title') }}" required/>
+                                @if ($errors->has('title'))<span class="text-danger">{{$errors->first('title')}}</span>@endif
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-primary fw-bold text-uppercase" for="basic-default">slug</label></span>
+                                <div class="alert alert-primary" role="alert">
+                                    <div class="alert-body"><strong id="text-slug"> {{ old('slug') }}</strong></div>
+                                </div>
+                                <span id="input-slug" style="display:none;">
+                                    <input name="slug" type="text" id="slug" class="form-control mb-1" value="{{ old('slug') }}" />
+                                    <button type="button" class="btn btn-primary btn-xs" id="simpan_slug">OK</button>
+                                    <button type="button" class="btn btn-secondary btn-xs" id="close_slug">Cancel</button>
+                                </span>
+                                @if ($errors->has('slug'))<span class="text-danger">{{$errors->first('slug')}}</span>@endif
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-primary fw-bold text-uppercase" for="basic-default">@lang('admin.form.category')</label>
+                                <select name="category_id" id="selectpickerBasic" class="selectpicker w-100" data-style="btn-default" required>
+                                    <option value="">-- PILIH --</option>
+                                    @foreach ($categories as $item)
+                                    <option value="{{ $item->id }}">{{ strtoupper($item->name) }}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('roles'))
+                                <span class="text-danger">
+                                    {{ $errors->first('roles') }}
+                                </span>
+                                @endif
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-primary fw-bold text-uppercase" for="basic-default">content</label></span>
+                                <textarea name="content" id="content" class="form-control">{{ old('content') }}</textarea>
+                                @if ($errors->has('content'))<span class="text-danger">Content Wajib Isi!!!</span>@endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-xl-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="mb-3 mt-2">
+                                <label class="form-label text-primary fw-bold text-uppercase" for="basic-default">status</label></span>
+                                <div class="d-flex flex-row">
+                                    <div class="custom-control custom-radio">
+                                        <input name="status" type="radio" id="customRadio4" class="form-check-input" value="1" checked />
+                                        <label class="custom-control-label" for="customRadio4">Terbit</label>
+                                    </div>
+                                    <div class="custom-control custom-radio ms-2">
+                                        <input name="status" type="radio" id="customRadio5" class="form-check-input" value="2" />
+                                        <label class="custom-control-label" for="customRadio5">Tidak</label>
+                                    </div>
+                                </div>
+                                @if ($errors->has('status'))<span class="text-danger">{{$errors->first('status')}}</span>@endif
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-2">
+                        <div class="card-body">
+                            <button type="submit" class="btn btn-primary text-uppercase">@lang('admin.save')</button>
+                            <a href="{{ route('pages.index') }}" class="btn btn-secondary text-uppercase">@lang('admin.cancel')</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            </form>
+        </div>
+
+        @include('admin.navigation.footer')
+
+        <div class="content-backdrop fade"></div>
+    </div>
+
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('app-assets') }}/vendor/libs/flatpickr/flatpickr.css" />
+        <link rel="stylesheet" href="{{ asset('app-assets') }}/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.css" />
+        <link rel="stylesheet" href="{{ asset('app-assets') }}/vendor/libs/bootstrap-daterangepicker/bootstrap-daterangepicker.css" />
+        <link rel="stylesheet" href="{{ asset('app-assets') }}/vendor/libs/jquery-timepicker/jquery-timepicker.css" />
+        <link rel="stylesheet" href="{{ asset('app-assets') }}/vendor/libs/pickr/pickr-themes.css" />
+        <link rel="stylesheet" href="{{ asset('app-assets') }}/vendor/libs/select2/select2.css" />
+        <link rel="stylesheet" href="{{ asset('app-assets') }}/vendor/libs/tagify/tagify.css" />
+        <link rel="stylesheet" href="{{ asset('app-assets') }}/vendor/libs/bootstrap-select/bootstrap-select.css" />
+        <link rel="stylesheet" href="{{ asset('app-assets') }}/vendor/libs/typeahead-js/typeahead.css" />
+    @endpush
+
+    @push('scripts')
+        <script src="{{ asset('app-assets') }}/vendor/libs/select2/select2.js"></script>
+        <script src="{{ asset('app-assets') }}/vendor/libs/bootstrap-select/bootstrap-select.js"></script>
+        <script src="{{ asset('app-assets') }}/vendor/libs/typeahead-js/typeahead.js"></script>
+        <script src="{{ asset('app-assets') }}/vendor/libs/bloodhound/bloodhound.js"></script>
+        <script src="{{ asset('app-assets') }}/js/forms-selects.js"></script>
+        <script src="{{ asset('app-assets') }}/js/forms-typeahead.js"></script>
+        <script src="{{asset('app-assets-old/vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
+        <script src="{{asset('app-assets-old/js/scripts/forms/pickers/form-pickers.js')}}"></script>
+        @include('admin.components.slug')
+    @endpush
+
+    @include('admin.components.imagecrop')
+    @include('admin.components.texteditor')
+</x-master-layout>
